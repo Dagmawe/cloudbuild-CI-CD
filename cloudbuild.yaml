@@ -1,4 +1,5 @@
 steps:
   - name: python:latest
     args: ["echo", "HELLO WORLD"]
-logging: NONE
+options:
+  logging: CLOUD_LOGGING_ONLY
