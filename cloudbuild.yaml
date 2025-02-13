@@ -1,28 +1,30 @@
 steps:
-  - name: python:latest
-    args: ["echo", "HELLO WORLD"]
-options:
-  logging: CLOUD_LOGGING_ONLY
-
-
-steps:
-  - name: 'python:latest' 
-    entrypoint: 'python'
-    args: ['-m', 'unittest', 'discover', 'flaskapp']
-
-steps:
+  - name: "python:latest"
+    entrypoint: "python"
+    args:
+      [
+        "-m",
+        "unittest",
+        "discover",
+        "flaskapp",
+        "&&",
+        "echo",
+        "unit test passed!",
+      ]
   - name: "gcr.io/cloud-builders/docker"
+    entrypoint: docker
     args:
       - "build"
       - "-t"
-      - "us-central1-docker.pkg.dev/dlegesse-test/test-project/webapp1:latest"
+      - "us-central1-docker.pkg.dev/dlegesse-test/test-project/webapp1:1.0"
       - "-f"
       - "flaskapp/Dockerfile"
       - "flaskapp"
   - name: "gcr.io/cloud-builders/docker"
     args:
       - "push"
-      - "us-central1-docker.pkg.dev/dlegesse-test/test-project/webapp1:latest"
+      - "us-central1-docker.pkg.dev/dlegesse-test/test-project/webapp1:1.0"
 images:
-  - "us-central1-docker.pkg.dev/dlegesse-test/test-project/webapp1:latest"
-
+  - "us-central1-docker.pkg.dev/dlegesse-test/test-project/webapp1:1.0"
+options:
+  logging: CLOUD_LOGGING_ONLY
