@@ -1,5 +1,8 @@
 steps:
   - name: "python:latest"
+    entrypoint: "pip"
+    args: ["install", "flask"]
+  - name: "python:latest"
     entrypoint: "python"
     args: ["-m", "unittest", "discover", "flaskapp"]
     id: "unit-test"
