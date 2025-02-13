@@ -1,16 +1,12 @@
 steps:
   - name: "python:latest"
     entrypoint: "python"
-    args:
-      [
-        "-m",
-        "unittest",
-        "discover",
-        "flaskapp",
-        "&&",
-        "echo",
-        "unit test passed!",
-      ]
+    args: ["-m", "unittest", "discover", "flaskapp"]
+    id: "unit-test"
+  - name:
+    waitfor: ["unit-test"]
+    entrypoint: "bash"
+    args: ["-c", "echo", "unit test passed!"]
   - name: "gcr.io/cloud-builders/docker"
     entrypoint: docker
     args:
