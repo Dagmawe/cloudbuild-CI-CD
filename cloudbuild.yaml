@@ -1,11 +1,14 @@
 steps:
   - name: "python:latest"
-    entrypoint: "pip"
-    args: ["install", "flask"]
-  - name: "python:latest"
-    entrypoint: "python"
-    args: ["-m", "unittest", "discover", "flaskapp"]
+  entrypoint: "bash"
+  args:
+    - "-c"
+    - "pip install flask && python -m unittest discover -v flaskapp"
     id: "unit-test"
+  # - name: "python:latest"
+  #   entrypoint: "python"
+  #   args: ["-m", "unittest", "discover", "flaskapp"]
+  #   id: "unit-test"
   - name: "python:latest"
     waitFor: ["unit-test"]
     entrypoint: "bash"
