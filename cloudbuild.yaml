@@ -3,3 +3,19 @@ steps:
     args: ["echo", "HELLO WORLD"]
 options:
   logging: CLOUD_LOGGING_ONLY
+
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      - "build"
+      - "-t"
+      - "us-central1-docker.pkg.dev/dlegesse-test/test-project/webapp:latest"
+      - "-f"
+      - "flaskapp/Dockerfile"
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      - "push"
+      - "us-central1-docker.pkg.dev/dlegesse-test/test-project/webapp:latest"
+images:
+  - "us-central1-docker.pkg.dev/dlegesse-test/test-project/webapp:latest"
+
