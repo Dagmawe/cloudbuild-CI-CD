@@ -4,7 +4,7 @@ steps:
     args: ["-m", "unittest", "discover", "flaskapp"]
     id: "unit-test"
   - name:
-    waitfor: ["unit-test"]
+    waitFor: ["unit-test"]
     entrypoint: "bash"
     args: ["-c", "echo", "unit test passed!"]
   - name: "gcr.io/cloud-builders/docker"
