@@ -4,7 +4,7 @@ steps:
   args:
     - "-c"
     - "pip install flask && python -m unittest discover -v flaskapp"
-    id: "unit-test"
+  id: "unit-test"
   # - name: "python:latest"
   #   entrypoint: "python"
   #   args: ["-m", "unittest", "discover", "flaskapp"]
