@@ -9,13 +9,14 @@ steps:
     args:
       - "build"
       - "-t"
-      - "us-central1-docker.pkg.dev/dlegesse-test/test-project/webapp:latest"
+      - "us-central1-docker.pkg.dev/dlegesse-test/test-project/webapp1:latest"
       - "-f"
       - "flaskapp/Dockerfile"
+      - "."
   - name: "gcr.io/cloud-builders/docker"
     args:
       - "push"
-      - "us-central1-docker.pkg.dev/dlegesse-test/test-project/webapp:latest"
+      - "us-central1-docker.pkg.dev/dlegesse-test/test-project/webapp1:latest"
 images:
-  - "us-central1-docker.pkg.dev/dlegesse-test/test-project/webapp:latest"
+  - "us-central1-docker.pkg.dev/dlegesse-test/test-project/webapp1:latest"
 
