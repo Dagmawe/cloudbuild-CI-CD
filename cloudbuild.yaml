@@ -1,4 +1,4 @@
 steps:
   - name: python:latest
     args: ["echo", "HELLO WORLD"]
-logsBucket: "gs://ad3691f2a500baf4-test-bucket"
+logsBucket: NONE
