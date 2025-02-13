@@ -4,6 +4,12 @@ steps:
 options:
   logging: CLOUD_LOGGING_ONLY
 
+
+steps:
+  - name: 'python:latest' 
+    entrypoint: 'python'
+    args: ['-m', 'unittest', 'discover', 'flaskapp']
+
 steps:
   - name: "gcr.io/cloud-builders/docker"
     args:
