@@ -12,7 +12,7 @@ steps:
       - "us-central1-docker.pkg.dev/dlegesse-test/test-project/webapp1:latest"
       - "-f"
       - "flaskapp/Dockerfile"
-      - "."
+      - "flaskapp"
   - name: "gcr.io/cloud-builders/docker"
     args:
       - "push"
