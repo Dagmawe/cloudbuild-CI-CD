@@ -3,7 +3,7 @@ steps:
     entrypoint: "python"
     args: ["-m", "unittest", "discover", "flaskapp"]
     id: "unit-test"
-  - name:
+  - name: "python:latest"
     waitFor: ["unit-test"]
     entrypoint: "bash"
     args: ["-c", "echo", "unit test passed!"]
