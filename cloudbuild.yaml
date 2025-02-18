@@ -22,6 +22,19 @@ steps:
     args:
       - "push"
       - "us-central1-docker.pkg.dev/dlegesse-test/test-project/webapp1:1.0"
+  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+    entrypoint: gcloud
+    args:
+      - "run"
+      - "deploy"
+      - "webapp1"
+      - "--image"
+      - "us-central1-docker.pkg.dev/dlegesse-test/test-project/webapp1:1.0"
+      - "--region"
+      - "us-central1"
+      - "--platform"
+      - "managed"
+      - "--allow-unauthenticated"
 images:
   - "us-central1-docker.pkg.dev/dlegesse-test/test-project/webapp1:1.0"
 options:
