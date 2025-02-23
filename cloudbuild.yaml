@@ -3,7 +3,7 @@ steps:
     entrypoint: "bash"
     args:
       - "-c"
-      - "pip install flask && python -m unittest discover -v flaskapp"
+      - "pip install flask flask_cors && python -m unittest discover -v flaskapp"
     id: "unit-test"
   - name: "python:latest"
     waitFor: ["unit-test"]
@@ -44,7 +44,7 @@ steps:
       - "frontend/"
       - "gs://$_BUCKET_NAME"
 images:
-  - "us-central1-docker.pkg.dev/dlegesse-test/test-project/webapp1:1.2"
+  - "us-central1-docker.pkg.dev/dlegesse-test/test-project/webapp1:1."
 options:
   logging: CLOUD_LOGGING_ONLY
 substitutions:
