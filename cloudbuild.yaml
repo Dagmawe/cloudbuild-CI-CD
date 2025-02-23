@@ -42,7 +42,7 @@ steps:
       - "cp"
       - "-r"
       - "frontend/"
-      - "gs://$BUCKET_NAME"
+      - "gs://$_BUCKET_NAME"
 images:
   - "us-central1-docker.pkg.dev/dlegesse-test/test-project/webapp1:1.0"
 options:
