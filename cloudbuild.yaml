@@ -44,7 +44,7 @@ steps:
       - "frontend/"
       - "gs://$_BUCKET_NAME"
 images:
-  - "us-central1-docker.pkg.dev/dlegesse-test/test-project/webapp1:1."
+  - "us-central1-docker.pkg.dev/dlegesse-test/test-project/webapp1:1.2"
 options:
   logging: CLOUD_LOGGING_ONLY
 substitutions:
