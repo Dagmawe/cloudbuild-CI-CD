@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fetch Data</title>
+  </head>
+  <body>
+    <button id="fetchButton">Fetch Data</button>
+    <div id="result"></div>
+
+    <script>
+      document
+        .getElementById("fetchButton")
+        .addEventListener("click", fetchData);
+
+      async function fetchData() {
+        try {
+          const response = await fetch(
+            "https://webapp1-330778246212.us-central1.run.app"
+          );
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const data = await response.text();
+          document.getElementById("result").textContent = data;
+        } catch (error) {
+          console.error("Error fetching data:", error);
+          document.getElementById("result").textContent =
+            "Error fetching data. Check the console.";
+        }
+      }
+    </script>
+  </body>
+</html>

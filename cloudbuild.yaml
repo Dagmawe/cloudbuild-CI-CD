@@ -35,7 +35,17 @@ steps:
       - "--platform"
       - "managed"
       - "--allow-unauthenticated"
+  - name: "gcr.io/cloud-builders/gsutil"
+    entrypoint: gsutil
+    args:
+      - "-m"
+      - "cp"
+      - "-r"
+      - "frontend/"
+      - "gs://$BUCKET_NAME"
 images:
   - "us-central1-docker.pkg.dev/dlegesse-test/test-project/webapp1:1.0"
 options:
   logging: CLOUD_LOGGING_ONLY
+substitutions:
+  _BUCKET_NAME: "webapp-dlegesse-test"
