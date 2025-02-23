@@ -14,14 +14,14 @@ steps:
     args:
       - "build"
       - "-t"
-      - "us-central1-docker.pkg.dev/dlegesse-test/test-project/webapp1:1.0"
+      - "us-central1-docker.pkg.dev/dlegesse-test/test-project/webapp1:1.2"
       - "-f"
       - "flaskapp/Dockerfile"
       - "flaskapp"
   - name: "gcr.io/cloud-builders/docker"
     args:
       - "push"
-      - "us-central1-docker.pkg.dev/dlegesse-test/test-project/webapp1:1.0"
+      - "us-central1-docker.pkg.dev/dlegesse-test/test-project/webapp1:1.2"
   - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
     entrypoint: gcloud
     args:
@@ -29,7 +29,7 @@ steps:
       - "deploy"
       - "webapp1"
       - "--image"
-      - "us-central1-docker.pkg.dev/dlegesse-test/test-project/webapp1:1.0"
+      - "us-central1-docker.pkg.dev/dlegesse-test/test-project/webapp1:1.2"
       - "--region"
       - "us-central1"
       - "--platform"
@@ -44,7 +44,7 @@ steps:
       - "frontend/"
       - "gs://$_BUCKET_NAME"
 images:
-  - "us-central1-docker.pkg.dev/dlegesse-test/test-project/webapp1:1.0"
+  - "us-central1-docker.pkg.dev/dlegesse-test/test-project/webapp1:1.2"
 options:
   logging: CLOUD_LOGGING_ONLY
 substitutions:
