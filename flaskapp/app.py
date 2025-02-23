@@ -1,6 +1,9 @@
 from flask import Flask
+from flask_cors import CORS
 
 app = Flask(__name__)
+
+CORS(app, origins="https://storage.mtls.cloud.google.com/webapp-dlegesse-test/frontend/app.html") 
 
 @app.route("/")
 def hello():
